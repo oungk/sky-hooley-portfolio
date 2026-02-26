@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #3E0230;
+  min-height: 100vh;
+  font-family: 'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: white;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #3E0230;
+  color: white;
+}
+
+/* Explicit styles for all text elements */
+nav a, p, div {
+  color: white !important;
+  font-family: 'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 16px;
+}
+
+/* Specific styles for different elements */
+nav {
+  color: white;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Luxurious Script', cursive;
+  font-size: 70px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Ensure all text is white */
+* {
+  color: white;
+}
