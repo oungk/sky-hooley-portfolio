@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Photography() {
   return (
     <div style={{
       minHeight: '100vh',
@@ -8,7 +8,7 @@ export default function Home() {
       padding: '2rem 1rem',
       position: 'relative'
     }}>
-      {/* Nav - Top Left */}
+      {/* 🧭 Nav - Top Left */}
     <nav style={{
       position: 'absolute',
       top: '2rem',

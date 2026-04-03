@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Media() {
   return (
     <div style={{
       minHeight: '100vh',

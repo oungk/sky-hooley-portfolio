@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Experience() {
   return (
     <div style={{
       minHeight: '100vh',
