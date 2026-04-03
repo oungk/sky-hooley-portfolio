@@ -49,7 +49,7 @@ export default function Media() {
         margin: 0,
         textAlign: 'center'
       }}>
-        Sky Hooley
+        Media I'm Consuming
       </h1>
 
       {/* Image */}

@@ -8,7 +8,7 @@ export default function Zine() {
       padding: '2rem 1rem',
       position: 'relative'
     }}>
-      {/* 🧭 Nav - Top Left */}
+      {/* Nav - Top Left */}
     <nav style={{
       position: 'absolute',
       top: '2rem',
@@ -26,7 +26,7 @@ export default function Zine() {
       <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "film photography" })); }}>film photography</a>
     </nav>
 
-      {/* 📸 Main content - Centered Layout */}
+      {/* Main content - Centered Layout */}
     <div style={{
       display: 'flex',
       flexDirection: 'column',
@@ -49,7 +49,7 @@ export default function Zine() {
         margin: 0,
         textAlign: 'center'
       }}>
-        Sky Hooley
+        Zine
       </h1>
 
       {/* Image */}

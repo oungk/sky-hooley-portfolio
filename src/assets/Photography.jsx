@@ -49,7 +49,7 @@ export default function Photography() {
         margin: 0,
         textAlign: 'center'
       }}>
-        Sky Hooley
+        Film Photography
       </h1>
 
       {/* Image */}

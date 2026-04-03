@@ -20,13 +20,11 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'experience':
+      case 'my work':
         return <Experience />
-      case 'contact':
-        return <Contact />
-      case 'media':
+      case "media i'm consuming":
         return <Media />
-      case 'photography':
+      case 'film photography':
         return <Photography />
       case 'zine':
         return <Zine />

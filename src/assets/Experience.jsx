@@ -49,7 +49,7 @@ export default function Experience() {
         margin: 0,
         textAlign: 'center'
       }}>
-        Sky Hooley
+        My Work
       </h1>
 
       {/* Image */}
