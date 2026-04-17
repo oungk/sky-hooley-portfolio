@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:data": "node scripts/fetch-sheet-data.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -26,7 +27,8 @@
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
-    "vite": "npm:rolldown-vite@7.1.14"
+    "vite": "npm:rolldown-vite@7.1.14",
+    "googleapis": "^144.0.0"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.14"
