@@ -8,16 +8,16 @@ export default function Photography() {
       padding: '2rem 1rem',
       position: 'relative'
     }}>
-      {/* 🧭 Nav - Top Left */}
-    <nav style={{
-      position: 'absolute',
-      top: '2rem',
-      left: '50%',
-      transform: 'translateX(-50%)',
+      {/* Nav - Middle */}
+      <nav style={{
       display: 'flex',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
       gap: '1.5rem',
       fontSize: '16px',
       zIndex: 10,
+      width: '100%',
+      marginBottom: '2rem',
     }}>
       <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })); }}>home</a>
       <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'my work' })); }}>my work</a>
@@ -26,7 +26,7 @@ export default function Photography() {
       <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "film photography" })); }}>film photography</a>
     </nav>
 
-      {/* 📸 Main content - Centered Layout */}
+      {/* Main content - Centered Layout */}
     <div style={{
       display: 'flex',
       flexDirection: 'column',

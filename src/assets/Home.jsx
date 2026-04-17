@@ -16,14 +16,14 @@ export default function Home() {
     }}>
       {/* Nav - Top Left */}
     <nav style={{
-      position: 'absolute',
-      top: '2rem',
-      left: '50%',
-      transform: 'translateX(-50%)',
       display: 'flex',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
       gap: '1.5rem',
       fontSize: '16px',
       zIndex: 10,
+      width: '100%',
+      marginBottom: '2rem',
     }}>
       <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })); }}>home</a>
       <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'my work' })); }}>my work</a>
@@ -72,6 +72,7 @@ export default function Home() {
       @media (max-width: 767px) {
         nav {
           position: relative !important;
+          flex-wrap: wrap;
           top: auto !important;
           left: auto !important;
           justify-content: center !important;
