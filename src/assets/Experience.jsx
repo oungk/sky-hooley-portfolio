@@ -48,7 +48,7 @@ export default function Experience() {
   useEffect(() => {
     let cancelled = false
     setLoadError(null)
-    fetch(DATA_URL)
+    fetch(DATA_URL, { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error(`Could not load ${DATA_URL}`)
         return res.json()
