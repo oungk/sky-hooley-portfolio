@@ -1,3 +1,5 @@
+import homeBackground from './imgs/home-background.gif';
+
 export default function Home() {
   return (
     <div style={{
@@ -6,7 +8,11 @@ export default function Home() {
       color: 'white',
       fontFamily: "'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
       padding: '2rem 1rem',
-      position: 'relative'
+      position: 'relative',
+      backgroundImage: `url(${homeBackground})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
     }}>
       {/* Nav - Top Left */}
     <nav style={{
@@ -19,14 +25,14 @@ export default function Home() {
       fontSize: '16px',
       zIndex: 10,
     }}>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })); }}>home</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'my work' })); }}>my work</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'zine' })); }}>zine</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "media i'm consuming" })); }}>media i'm consuming</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "film photography" })); }}>film photography</a>
+      <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })); }}>home</a>
+      <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'my work' })); }}>my work</a>
+      <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'zine' })); }}>zine</a>
+      <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "media i'm consuming" })); }}>media i'm consuming</a>
+      <a href="#" style={{textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "film photography" })); }}>film photography</a>
     </nav>
 
-      {/* 📸 Main content - Centered Layout */}
+      {/* Main content - Centered Layout */}
     <div style={{
       display: 'flex',
       flexDirection: 'column',
@@ -39,45 +45,6 @@ export default function Home() {
       margin: '0 auto',
       padding: '2rem 1rem'
     }}>
-
-      {/* Sky Hooley Name */}
-      <h1 style={{
-        fontSize: '70px',
-        fontFamily: "'Luxurious Script', cursive",
-        color: 'white',
-        fontWeight: 'normal',
-        margin: 0,
-        textAlign: 'center'
-      }}>
-        Sky Hooley
-      </h1>
-
-      {/* Image */}
-      {/*
-      <img
-        src={homeImage}
-        alt="Sky Hooley"
-        style={{
-          width: '200px',
-          height: '200px',
-          objectFit: 'cover',
-        }}
-      />
-      */}
-
-      {/* Description text */}
-      <p style={{
-        fontSize: '16px',
-        lineHeight: '1.625',
-        textAlign: 'center',
-        color: 'white',
-        fontFamily: "'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
-        fontWeight: 'normal',
-        maxWidth: '400px',
-        margin: 0
-      }}>
-        TKTKTK.
-      </p>
 
     </div>
 
