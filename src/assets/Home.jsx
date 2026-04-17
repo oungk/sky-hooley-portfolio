@@ -14,7 +14,7 @@ export default function Home() {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
     }}>
-      {/* Nav - Top Left */}
+      {/* Nav - Middle */}
     <nav style={{
       display: 'flex',
       justifyContent: 'center',
