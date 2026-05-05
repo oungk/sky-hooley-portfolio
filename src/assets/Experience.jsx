@@ -72,7 +72,7 @@ export default function Experience({ currentPage }) {
 
   const linkStyle = {
     textDecoration: 'underline',
-    fontFamily: "'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
+    fontFamily: "Times New Roman",
     color: 'black'
   }
 
@@ -109,13 +109,6 @@ export default function Experience({ currentPage }) {
         }}>
           EXPERIENCE
         </h2>
-
-        {loadError && (
-          <p style={{ fontSize: '16px', margin: 0, textAlign: 'center' }}>{loadError}</p>
-        )}
-        {!loadError && work.length === 0 && (
-          <p style={{ fontSize: '16px', margin: 0, textAlign: 'center' }}>Loading…</p>
-        )}
 
         <div style={{ width: '100%', alignSelf: 'stretch', textAlign: 'center', color:'black' }}>
           {grouped.categoryOrder.map((category) => {
