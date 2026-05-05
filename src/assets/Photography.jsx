@@ -69,12 +69,6 @@ export default function Photography({currentPage }) {
       background: '#c9dbff',
     }}>
 
-      {loadError && (
-        <p style={{ color: 'black', textAlign: 'center' }}>{loadError}</p>
-      )}
-      {!loadError && photos.length === 0 && (
-        <p style={{ color: 'black', textAlign: 'center' }}>Loading photos…</p>
-      )}
       {!loadError && photos.length > 0 && (
         <div
           style={{
