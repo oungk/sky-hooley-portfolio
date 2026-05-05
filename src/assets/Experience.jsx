@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import SiteNav from './SiteNav'
 
 const DATA_URL = `${import.meta.env.BASE_URL}data/experience.json`
 
@@ -40,7 +41,7 @@ function skillText(row) {
   return v ? v.trim() : ''
 }
 
-export default function Experience() {
+export default function Experience({ currentPage }) {
   const [work, setWork] = useState([])
   const [skills, setSkills] = useState([])
   const [loadError, setLoadError] = useState(null)
@@ -84,23 +85,9 @@ export default function Experience() {
       padding: '2rem 1rem',
       position: 'relative'
     }}>
-      {/* Nav - Middle */}
-      <nav style={{
-      display: 'flex',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      gap: '1.5rem',
-      fontSize: '16px',
-      zIndex: 10,
-      width: '100%',
-      marginBottom: '2rem',
-    }}>
-        <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })); }}>home</a>
-        <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'my work' })); }}>my work</a>
-        <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'zine' })); }}>zine</a>
-        <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "media i'm consuming" })); }}>media i'm consuming</a>
-        <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "film photography" })); }}>film photography</a>
-      </nav>
+    
+    {/* Nav */}
+    <SiteNav currentPage={currentPage} />
 
       {/* Main content - Centered Layout */}
       <div style={{
@@ -115,17 +102,6 @@ export default function Experience() {
         margin: '0 auto',
         padding: '2rem 1rem'
       }}>
-
-        <h1 style={{
-          fontSize: '70px',
-          fontFamily: "'Luxurious Script', cursive",
-          color: 'white',
-          fontWeight: 'normal',
-          margin: 0,
-          textAlign: 'center'
-        }}>
-          My Work
-        </h1>
 
         <h2 style={{
           fontWeight: 'normal',

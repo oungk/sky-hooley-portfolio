@@ -1,4 +1,6 @@
-export default function Photography() {
+import SiteNav from './SiteNav'
+
+export default function Photography({currentPage }) {
   return (
     <div style={{
       minHeight: '100vh',
@@ -8,25 +10,11 @@ export default function Photography() {
       padding: '2rem 1rem',
       position: 'relative'
     }}>
-      {/* Nav - Middle */}
-      <nav style={{
-      display: 'flex',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      gap: '1.5rem',
-      fontSize: '16px',
-      zIndex: 10,
-      width: '100%',
-      marginBottom: '2rem',
-    }}>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })); }}>home</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'my work' })); }}>my work</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: 'zine' })); }}>zine</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "media i'm consuming" })); }}>media i'm consuming</a>
-      <a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'normal'}} onMouseOver={(e) => e.target.style.fontWeight = 'bold'} onMouseOut={(e) => e.target.style.fontWeight = 'normal'} onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate', { detail: "film photography" })); }}>film photography</a>
-    </nav>
 
-      {/* Main content - Centered Layout */}
+    {/* Nav */}
+    <SiteNav currentPage={currentPage} />
+
+    {/* Main content - Centered Layout */}
     <div style={{
       display: 'flex',
       flexDirection: 'column',
@@ -40,42 +28,8 @@ export default function Photography() {
       padding: '2rem 1rem'
     }}>
 
-      {/* Sky Hooley Name */}
-      <h1 style={{
-        fontSize: '70px',
-        fontFamily: "'Luxurious Script', cursive",
-        color: 'white',
-        fontWeight: 'normal',
-        margin: 0,
-        textAlign: 'center'
-      }}>
-        Film Photography
-      </h1>
-
-      {/* Image */}
-      {/*
-      <img
-        src={homeImage}
-        alt="Sky Hooley"
-        style={{
-          width: '200px',
-          height: '200px',
-          objectFit: 'cover',
-        }}
-      />
-      */}
-
-      {/* Description text */}
-      <p style={{
-        fontSize: '16px',
-        lineHeight: '1.625',
-        textAlign: 'center',
-        color: 'white',
-        fontFamily: "'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
-        fontWeight: 'normal',
-        maxWidth: '400px',
-        margin: 0
-      }}>
+      {/* Body */}
+      <p>
         TKTKTK.
       </p>
 

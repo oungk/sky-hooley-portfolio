@@ -21,20 +21,22 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'my work':
-        return <Experience />
-      case "media i'm consuming":
-        return <Media />
-      case 'film photography':
-        return <Photography />
-      case 'zine':
-        return <Zine />
+        return <Experience currentPage={currentPage} />
+      case "my favs":
+        return <Media currentPage={currentPage} />
+      case 'my pics':
+        return <Photography currentPage={currentPage} />
+      case 'my zine':
+        return <Zine currentPage={currentPage} />
+      case 'home':
+        return <Home currentPage={currentPage} />
       default:
-        return <Home />
+        return <Home currentPage={currentPage} />
     }
   }
 
   return (
-    <div className="min-h-screen bg-[#3E0230] w-full">
+    <div className="min-h-screen w-full">
       {renderPage()}
     </div>
   )
