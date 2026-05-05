@@ -152,8 +152,8 @@ export default function Experience({ currentPage }) {
                                 <span> <br></br> </span>
                                 {links.map((href, i) => (
                                   <span key={href + i}>
-                                    {i > 0 && <span> | </span>}
-                                    <a href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>link</a>
+                                    {i > 0 && <span> </span>}
+                                    <a href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>★</a>
                                   </span>
                                 ))}
                               </>
