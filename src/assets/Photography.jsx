@@ -1,12 +1,22 @@
 import SiteNav from './SiteNav'
+import React from "react";
+import Slider from "react-slick";
 
 export default function Photography({currentPage }) {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <div style={{
       minHeight: '100vh',
       backgroundColor: '#73D1F5',
       color: 'white',
-      fontFamily: "'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
+      fontFamily: "Times New Roman",
       padding: '2rem 1rem',
       position: 'relative'
     }}>
@@ -29,9 +39,26 @@ export default function Photography({currentPage }) {
     }}>
 
       {/* Body */}
-      <p>
-        TKTKTK.
-      </p>
+      <Slider {...settings} style={{ width: '100%' }}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider>
 
     </div>
 
