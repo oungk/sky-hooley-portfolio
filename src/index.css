@@ -46,3 +46,48 @@ h1 {
   font-size: 70px;
   color: rgba(255, 255, 255, 0.3);
 }
+
+/* react-slick: black arrows, no background circle */
+.photography-slider .slick-prev,
+.photography-slider .slick-next {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.photography-slider .slick-prev:hover,
+.photography-slider .slick-prev:focus,
+.photography-slider .slick-next:hover,
+.photography-slider .slick-next:focus {
+  background: transparent !important;
+  outline: none;
+}
+
+.photography-slider .slick-prev:before,
+.photography-slider .slick-next:before {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+.photography-slider .slick-prev:hover:before,
+.photography-slider .slick-prev:focus:before,
+.photography-slider .slick-next:hover:before,
+.photography-slider .slick-next:focus:before {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+.photography-slider .slick-prev.slick-disabled:before,
+.photography-slider .slick-next.slick-disabled:before {
+  color: #000 !important;
+  opacity: 0.35 !important;
+}
+
+.photography-slider .slick-slide > div {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 2px;
+}

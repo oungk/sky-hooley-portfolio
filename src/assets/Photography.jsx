@@ -1,8 +1,40 @@
 import SiteNav from './SiteNav'
-import React from "react";
+import { useEffect, useState } from 'react'
 import Slider from "react-slick";
 
+const DATA_URL = `${import.meta.env.BASE_URL}data/photography.json`
+
+function driveImageUrl(fileId) {
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`
+}
+
 export default function Photography({currentPage }) {
+  const [photos, setPhotos] = useState([])
+  const [loadError, setLoadError] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+    setLoadError(null)
+    fetch(DATA_URL, { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Could not load ${DATA_URL}`)
+        return res.json()
+      })
+      .then((data) => {
+        if (!cancelled && Array.isArray(data)) {
+          const ids = data
+            .map((row) => row?.image_id)
+          setPhotos(ids)
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) setLoadError(err.message || String(err))
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   var settings = {
     dots: true,
     infinite: true,
@@ -14,7 +46,6 @@ export default function Photography({currentPage }) {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#73D1F5',
       color: 'white',
       fontFamily: "Times New Roman",
       padding: '2rem 1rem',
@@ -24,42 +55,61 @@ export default function Photography({currentPage }) {
     {/* Nav */}
     <SiteNav currentPage={currentPage} />
 
-    {/* Main content - Centered Layout */}
-    <div style={{
+        {/* Main column — no maxHeight (was clipping the carousel) */}
+        <div style={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       gap: '2rem',
       width: '100%',
-      maxWidth: '800px',
-      minHeight: '100vh',
+      maxWidth: '1000px',
       margin: '0 auto',
-      padding: '2rem 1rem'
+      padding: '2rem 1rem',
+      background: '#c9dbff',
     }}>
 
-      {/* Body */}
-      <Slider {...settings} style={{ width: '100%' }}>
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-      <div>
-        <h3>4</h3>
-      </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
-      </div>
-    </Slider>
-
+      {loadError && (
+        <p style={{ color: 'black', textAlign: 'center' }}>{loadError}</p>
+      )}
+      {!loadError && photos.length === 0 && (
+        <p style={{ color: 'black', textAlign: 'center' }}>Loading photos…</p>
+      )}
+      {!loadError && photos.length > 0 && (
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '800px',
+            boxSizing: 'border-box',
+            border: '3px solid #c9dbff',
+            borderRadius: '8px',
+            padding: '12px',
+          }}
+        >
+          <Slider {...settings} className="photography-slider" style={{ width: '100%' }}>
+            {photos.map((id) => (
+              <div key={id}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: '70vh',
+              }}>
+                <img
+                  src={driveImageUrl(id)}
+                  alt=""
+                  style={{
+                    width: '100%',
+                    maxHeight: '70vh',
+                    objectFit: 'contain',
+                    display: 'block',
+                  }}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      )}
     </div>
 
     {/* Mobile Responsive Styles */}

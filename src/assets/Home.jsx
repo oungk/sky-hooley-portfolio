@@ -5,7 +5,6 @@ export default function Home({ currentPage }) {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#73D1F5',
       color: 'white',
       fontFamily: "Times New Roman",
       padding: '2rem 1rem',

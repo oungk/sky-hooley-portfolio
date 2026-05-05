@@ -4,9 +4,8 @@ export default function Media({ currentPage }) {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#73D1F5',
       color: 'white',
-      fontFamily: "'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
+      fontFamily: "Times New Roman",
       padding: '2rem 1rem',
       position: 'relative'
     }}>
