@@ -1,24 +1,19 @@
-import homeBackground from './imgs/home-background.gif';
 import SiteNav from './SiteNav'
 
-export default function Home({ currentPage }) {
+export default function Zine({currentPage }) {
   return (
     <div style={{
       minHeight: '100vh',
       color: 'white',
       fontFamily: "Times New Roman",
       padding: '2rem 1rem',
-      position: 'relative',
-      backgroundImage: `url(${homeBackground})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
+      position: 'relative'
     }}>
-    
+
     {/* Nav */}
     <SiteNav currentPage={currentPage} />
 
-    {/* Main content - Centered Layout */}
+      {/* Main content - Centered Layout */}
     <div style={{
       display: 'flex',
       flexDirection: 'column',
@@ -31,6 +26,11 @@ export default function Home({ currentPage }) {
       margin: '0 auto',
       padding: '2rem 1rem'
     }}>
+
+      {/* Body */}
+      <p>
+        TKTKTK.
+      </p>
 
     </div>
 
@@ -58,7 +58,6 @@ export default function Home({ currentPage }) {
       @media (max-width: 767px) {
         nav {
           position: relative !important;
-          flex-wrap: wrap;
           top: auto !important;
           left: auto !important;
           justify-content: center !important;

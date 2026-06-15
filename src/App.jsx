@@ -1,9 +1,10 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import Home from './assets/Home'
-import Work from './assets/Work'
-import Contact from './assets/Contact'
-import Bylines from './assets/Bylines'
+import Experience from './assets/Experience'
+import Media from './assets/Media'
+import Photography from './assets/Photography'
+import Zine from './assets/Zine'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -19,19 +20,23 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'work':
-        return <Work />
-      case 'contact':
-        return <Contact />
-      case 'bylines':
-        return <Bylines />
+      case 'my work':
+        return <Experience currentPage={currentPage} />
+      case "my favs":
+        return <Media currentPage={currentPage} />
+      case 'my pics':
+        return <Photography currentPage={currentPage} />
+      case 'my zine':
+        return <Zine currentPage={currentPage} />
+      case 'home':
+        return <Home currentPage={currentPage} />
       default:
-        return <Home />
+        return <Home currentPage={currentPage} />
     }
   }
 
   return (
-    <div className="min-h-screen bg-[#3E0230] w-full">
+    <div className="min-h-screen w-full">
       {renderPage()}
     </div>
   )

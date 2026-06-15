@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
   margin: 0;
   padding: 0;
@@ -11,38 +7,87 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #3E0230;
   min-height: 100vh;
-  font-family: 'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  color: white;
+  font-family: 'Times New Roman';
+  color: black;
 }
 
 #root {
   min-height: 100vh;
-  background-color: #3E0230;
-  color: white;
 }
 
 /* Explicit styles for all text elements */
 nav a, p, div {
-  color: white !important;
-  font-family: 'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: black;
+  font-family: 'Times New Roman';
   font-size: 16px;
 }
 
 /* Specific styles for different elements */
 nav {
-  color: white;
+  color: black;
   font-size: 16px;
 }
 
+.site-nav a {
+  font-family: 'Times New Roman';
+  font-size: 19px;
+}
+
+.site-nav a[aria-current='page'] {
+  font-family: 'Ballet', cursive;
+  font-size: 26px;
+  display: inline-block;
+  transform: translateY(-8px);
+}
+
 h1 {
-  font-family: 'Luxurious Script', cursive;
+  font-family: 'Ballet', cursive;
   font-size: 70px;
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* Ensure all text is white */
-* {
-  color: white;
+/* react-slick: black arrows, no background circle */
+.photography-slider .slick-prev,
+.photography-slider .slick-next {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.photography-slider .slick-prev:hover,
+.photography-slider .slick-prev:focus,
+.photography-slider .slick-next:hover,
+.photography-slider .slick-next:focus {
+  background: transparent !important;
+  outline: none;
+}
+
+.photography-slider .slick-prev:before,
+.photography-slider .slick-next:before {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+.photography-slider .slick-prev:hover:before,
+.photography-slider .slick-prev:focus:before,
+.photography-slider .slick-next:hover:before,
+.photography-slider .slick-next:focus:before {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+.photography-slider .slick-prev.slick-disabled:before,
+.photography-slider .slick-next.slick-disabled:before {
+  color: #000 !important;
+  opacity: 0.35 !important;
+}
+
+.photography-slider .slick-slide > div {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 2px;
 }
