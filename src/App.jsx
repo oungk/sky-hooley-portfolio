@@ -2,7 +2,6 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import Home from './assets/Home'
 import Experience from './assets/Experience'
-import Media from './assets/Media'
 import Photography from './assets/Photography'
 import Zine from './assets/Zine'
 
@@ -22,8 +21,6 @@ function App() {
     switch (currentPage) {
       case 'my work':
         return <Experience currentPage={currentPage} />
-      case "my favs":
-        return <Media currentPage={currentPage} />
       case 'my pics':
         return <Photography currentPage={currentPage} />
       case 'my zine':

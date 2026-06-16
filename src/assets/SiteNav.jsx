@@ -13,7 +13,6 @@ const NAV_STYLE = {
 	{ detail: 'home', label: 'home' },
 	{ detail: 'my work', label: 'my work' },
 	{ detail: 'my zine', label: 'my zine' },
-	{ detail: 'my favs', label: 'my favs' },
 	{ detail: 'my pics', label: 'my pics' },
   ]
   
