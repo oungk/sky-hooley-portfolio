@@ -4,6 +4,7 @@ import Home from './assets/Home'
 import Experience from './assets/Experience'
 import Photography from './assets/Photography'
 import Zine from './assets/Zine'
+import Bio from './assets/Bio'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -25,6 +26,8 @@ function App() {
         return <Photography currentPage={currentPage} />
       case 'my zine':
         return <Zine currentPage={currentPage} />
+      case 'me':
+        return <Bio currentPage={currentPage} />
       case 'home':
         return <Home currentPage={currentPage} />
       default:

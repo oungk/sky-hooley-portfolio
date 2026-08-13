@@ -14,6 +14,7 @@ const NAV_STYLE = {
 	{ detail: 'my work', label: 'my work' },
 	{ detail: 'my zine', label: 'my zine' },
 	{ detail: 'my pics', label: 'my pics' },
+	{ detail: 'me', label: 'me' },
   ]
   
   export default function SiteNav({ currentPage, links = NAV_LINKS, linkColor }) {
