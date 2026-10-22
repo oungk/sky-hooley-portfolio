@@ -1,6 +1,7 @@
 import SiteNav from './SiteNav'
 import { useEffect, useState } from 'react'
 import Slider from "react-slick";
+import DecalPic from './imgs/pics-decal.png'
 
 const DATA_URL = `${import.meta.env.BASE_URL}data/photography.json`
 
@@ -11,6 +12,7 @@ function driveImageUrl(fileId) {
 export default function Photography({currentPage }) {
   const [photos, setPhotos] = useState([])
   const [loadError, setLoadError] = useState(null)
+  const [loadedIndexes, setLoadedIndexes] = useState(() => new Set([0]))
 
   useEffect(() => {
     let cancelled = false
@@ -21,10 +23,13 @@ export default function Photography({currentPage }) {
         return res.json()
       })
       .then((data) => {
-        if (!cancelled && Array.isArray(data)) {
-          const ids = data
+        if (!cancelled) {
+          const rows = Array.isArray(data?.all) ? data.all : []
+          const ids = rows
             .map((row) => row?.image_id)
+            .filter(Boolean)
           setPhotos(ids)
+          setLoadedIndexes(new Set([0]))
         }
       })
       .catch((err) => {
@@ -35,12 +40,22 @@ export default function Photography({currentPage }) {
     }
   }, [])
 
+  const markLoaded = (index) => {
+    setLoadedIndexes((prev) => {
+      if (prev.has(index)) return prev
+      const next = new Set(prev)
+      next.add(index)
+      return next
+    })
+  }
+
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    afterChange: markLoaded,
   };
 
   return (
@@ -66,7 +81,6 @@ export default function Photography({currentPage }) {
       maxWidth: '1000px',
       margin: '0 auto',
       padding: '2rem 1rem',
-      background: '#c9dbff',
     }}>
 
       {!loadError && photos.length > 0 && (
@@ -75,13 +89,11 @@ export default function Photography({currentPage }) {
             width: '100%',
             maxWidth: '800px',
             boxSizing: 'border-box',
-            border: '3px solid #c9dbff',
-            borderRadius: '8px',
             padding: '12px',
           }}
         >
           <Slider {...settings} className="photography-slider" style={{ width: '100%' }}>
-            {photos.map((id) => (
+            {photos.map((id, index) => (
               <div key={id}
               style={{
                 display: 'flex',
@@ -89,21 +101,47 @@ export default function Photography({currentPage }) {
                 justifyContent: 'center',
                 minHeight: '70vh',
               }}>
-                <img
-                  src={driveImageUrl(id)}
-                  alt=""
-                  style={{
-                    width: '100%',
-                    maxHeight: '70vh',
-                    objectFit: 'contain',
-                    display: 'block',
-                  }}
-                />
+                {loadedIndexes.has(index) ? (
+                  <img
+                    src={driveImageUrl(id)}
+                    alt=""
+                    style={{
+                      width: '100%',
+                      maxHeight: '70vh',
+                      objectFit: 'contain',
+                      display: 'block',
+                    }}
+                  />
+                ) : (
+                  <div style={{ minHeight: '70vh' }} />
+                )}
               </div>
             ))}
           </Slider>
         </div>
       )}
+
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'black',
+        }}
+      >
+        <img
+          src={DecalPic}
+          alt="Olympus Stylus 150"
+          style={{
+            width: '120px',
+            height: 'auto',
+            display: 'block',
+          }}
+        />
+        <p style={{ margin: 0, fontSize: '18px' }}>
+          shot on an olympus stylus 150
+        </p>
+      </div>
     </div>
 
     {/* Mobile Responsive Styles */}
