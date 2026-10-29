@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import DecalPic from './imgs/pics-decal.png'
 
 const DATA_URL = `${import.meta.env.BASE_URL}data/photography.json`
-const COLUMN_GAP = 4
+const COLUMN_GAP = 100
 
 function driveImageUrl(fileId) {
   return `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`
