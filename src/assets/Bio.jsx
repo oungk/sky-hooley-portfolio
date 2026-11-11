@@ -56,7 +56,7 @@ export default function Bio({currentPage }) {
       // justifyContent: 'center',
       gap: '2rem',
       width: '100%',
-      maxWidth: '800px',
+      maxWidth: '1200px',
       minHeight: '100vh',
       margin: '0 auto',
     }}>
@@ -91,7 +91,7 @@ export default function Bio({currentPage }) {
             src={hoverUrl}
             alt=""
             aria-hidden="true"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.25s ease' }}
+            style={{ position: 'block', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.25s ease' }}
           />
           <span
             className="bio-portrait-hint"
@@ -112,8 +112,8 @@ export default function Bio({currentPage }) {
           </span>
         </div>
         <div className="bio-text" style={{ justifyContent: 'center' }}>
-          <p>
-            <strong dangerouslySetInnerHTML={{ __html: bioHtml }} />
+        <p style={{ fontSize: '20px' }}>
+        <strong dangerouslySetInnerHTML={{ __html: bioHtml }} />
           </p>
         </div>
       </div>
