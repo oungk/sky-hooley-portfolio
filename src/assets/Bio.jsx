@@ -1,10 +1,37 @@
+import { useEffect, useState } from 'react'
 import bioBackground from './imgs/bio-background.png';
-import bioPortrait from './imgs/sky-bio-picture.png';
-import bioPortraitSecondary from './imgs/sky-bio-picture-secondary.png'
-
 import SiteNav from './SiteNav'
+const DATA_URL = `${import.meta.env.BASE_URL}data/about.json`
+function driveImageUrl(fileId) {
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`
+}
 
 export default function Bio({currentPage }) {
+  const [headshotUrl, setHeadshotUrl] = useState('')
+  const [hoverUrl, setHoverUrl] = useState('')
+  const [bioHtml, setBioHtml] = useState('')
+
+
+  useEffect(() => {
+    let cancelled = false
+    fetch(DATA_URL, { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Could not load ${DATA_URL}`)
+        return res.json()
+      })
+      .then((data) => {
+        if (cancelled) return
+        const headshotId = data.headshot?.[0]?.image_id
+        const hoverId = data.hover?.[0]?.image_id
+        const text = data.bio?.[0]?.bio_text ?? ''
+        setHeadshotUrl(headshotId ? driveImageUrl(headshotId) : '')
+        setHoverUrl(hoverId ? driveImageUrl(hoverId) : '')
+        setBioHtml(text)
+      })
+      .catch((err) => console.error(err))
+    return () => { cancelled = true }
+  }, [])
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -55,29 +82,16 @@ export default function Bio({currentPage }) {
         >
           <img
             className="bio-portrait-primary"
-            src={bioPortrait}
+            src={headshotUrl}
             alt="Sky Hooley"
-            style={{
-              display: 'block',
-              width: '100%',
-              height: 'auto',
-              objectFit: 'cover',
-            }}
+            style={{ display: 'block', width: '100%', height: 'auto', objectFit: 'cover' }}
           />
           <img
             className="bio-portrait-secondary"
-            src={bioPortraitSecondary}
+            src={hoverUrl}
             alt=""
             aria-hidden="true"
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0,
-              transition: 'opacity 0.25s ease',
-            }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.25s ease' }}
           />
           <span
             className="bio-portrait-hint"
@@ -97,17 +111,10 @@ export default function Bio({currentPage }) {
             hover for more
           </span>
         </div>
-        <div
-          className="bio-text"
-          style={{ justifyContent: 'center' }}
-        >
-          <p><strong>
-          sky is a los angeles-based creative and music industry professional skilled in creative project management and marketing. sky has experience strategizing with artists on the road, on set, in the studio, and beyond. he currently works at PULSE Records in artist marketing, and his background is in live music touring at William Morris Endeavor.
-          </strong></p>
-          <br></br>
-          <p><strong>
-          he has worked on tours of all sizes and across the globe, from small house shows in Nashville to clubs in LA, from theaters in London to arenas in Malaysia. sky is passionate about communicating an artist’s vision precisely, whether that means pairing artists with the right writers for sessions, booking them in the right rooms, or making the right visuals for new releases.
-          </strong></p>
+        <div className="bio-text" style={{ justifyContent: 'center' }}>
+          <p>
+            <strong dangerouslySetInnerHTML={{ __html: bioHtml }} />
+          </p>
         </div>
       </div>
 

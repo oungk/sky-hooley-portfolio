@@ -6,7 +6,7 @@
   ],
   "bio": [
     {
-      "bio_text": "sky is a los angeles-based creative and music industry professional skilled in creative project management and marketing. sky has experience strategizing with artists on the road, on set, in the studio, and beyond. he currently works at PULSE Records in artist marketing, with a background in live music bookings at William Morris Endeavor.\n\nsky is also the creator of American Boy Doll. his zine is available at americanboydoll.studio."
+      "bio_text": "sky is a los angeles-based creative and music industry professional skilled in creative project management and marketing. sky has experience strategizing with artists on the road, on set, in the studio, and beyond. he currently works at PULSE Records in artist marketing, with a background in live music bookings at William Morris Endeavor.\n<br><br>\nsky is also the creator of American Boy Doll. his zine is available at <a href=\"americanboydoll.studio\">americanboydoll.studio</a>."
     }
   ],
   "headshot": [
@@ -14,5 +14,9 @@
       "image_id": "1KBOLImLodZK0pNHyVSfqNH6X3bTpAjmf"
     }
   ],
-  "hover": []
+  "hover": [
+    {
+      "image_id": "1IjWrU3XVP9fRQF9feJopUx2vE750GlR4"
+    }
+  ]
 }
