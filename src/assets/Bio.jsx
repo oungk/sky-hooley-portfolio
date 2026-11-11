@@ -91,7 +91,7 @@ export default function Bio({currentPage }) {
             src={hoverUrl}
             alt=""
             aria-hidden="true"
-            style={{ position: 'block', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.25s ease' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.25s ease' }}
           />
           <span
             className="bio-portrait-hint"
