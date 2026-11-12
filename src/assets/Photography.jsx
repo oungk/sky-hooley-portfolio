@@ -272,7 +272,7 @@ export default function Photography({ currentPage }) {
           }}
         />
         <p style={{ margin: 0, fontSize: '18px' }}>
-          shot on an olympus stylus 150
+          shot on an olympus stylus 160
         </p>
       </div>
     </div>
